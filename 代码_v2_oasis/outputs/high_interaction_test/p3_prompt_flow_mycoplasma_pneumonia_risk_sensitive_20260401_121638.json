@@ -1,0 +1,282 @@
+{
+  "scenario": "mycoplasma_pneumonia",
+  "persona": "risk_sensitive",
+  "model": "zhipu/glm-4",
+  "dry_run": false,
+  "simulate_p3": true,
+  "climates": {
+    "none": {
+      "raw_response": "```json\n{\n  \"credible_choice\": \"neutral\",\n  \"like_choice\": \"none\",\n  \"share_choice\": \"none\",\n  \"comment_choice\": \"neutral\",\n  \"planned_action\": \"post_comment\",\n  \"reply_target\": \"none\",\n  \"group_consensus_perception\": 40,\n  \"public_comment\": \"关注官方信息，避免被自媒体夸大报道影响判断\",\n  \"private_reason\": \"两种信息存在矛盾，官方媒体和专家意见更可靠，但自媒体反映的家长担忧也值得关注，需要保持平衡视角\"\n}\n```",
+      "parsed_decision": {
+        "credible_choice": "neutral",
+        "like_choice": "none",
+        "share_choice": "none",
+        "comment_choice": "neutral",
+        "reason": null
+      },
+      "parsed_p3_fields": {
+        "planned_action": "post_comment",
+        "reply_target": "none",
+        "group_consensus_perception": 40,
+        "public_comment": "关注官方信息，避免被自媒体夸大报道影响判断",
+        "private_reason": "两种信息存在矛盾，官方媒体和专家意见更可靠，但自媒体反映的家长担忧也值得关注，需要保持平衡视角"
+      },
+      "simulation_steps": [
+        {
+          "timestep": 1,
+          "events_count": 6,
+          "comment_events": 6,
+          "action_counts": {
+            "post_comment": 6,
+            "reply": 0,
+            "like": 0,
+            "repost": 0,
+            "observe": 0
+          },
+          "reply_ratio": 0.0,
+          "new_post_ratio": 1.0,
+          "observe_ratio": 0.0,
+          "unique_reply_targets": 0,
+          "avg_group_consensus_perception": 42.5,
+          "recent_updates": "agent_000：需理性看待疫情数据，既不轻视也不恐慌\nagent_001：关注官方数据，避免被个别案例误导\nagent_002：需关注但不过度恐慌，官方数据与家长感受差异值得研究\nagent_003：需警惕但不必恐慌，关注官方数据和专业建议\nagent_004：关注官方数据，避免被片面信息影响判断\nagent_005：需关注官方数据，避免被个别案例误导"
+        },
+        {
+          "timestep": 2,
+          "events_count": 6,
+          "comment_events": 6,
+          "action_counts": {
+            "post_comment": 6,
+            "reply": 0,
+            "like": 0,
+            "repost": 0,
+            "observe": 0
+          },
+          "reply_ratio": 0.0,
+          "new_post_ratio": 1.0,
+          "observe_ratio": 0.0,
+          "unique_reply_targets": 0,
+          "avg_group_consensus_perception": 36.67,
+          "recent_updates": "agent_000：需理性看待疫情数据，既不轻视也不恐慌\nagent_001：关注官方数据，避免被个别案例误导\nagent_002：需关注但不过度恐慌，官方数据与家长感受差异值得研究\nagent_003：需警惕但不必恐慌，关注官方数据和专业建议\nagent_004：关注官方数据，避免被片面信息影响判断\nagent_005：需关注官方数据，避免被个别案例误导\nagent_000：数据与感受差异需理性分析，关注官方信息同时不忽视个体体验\nagent_001：数据差异需理性分析，既不轻视风险也不过度恐慌\nagent_002：官方数据与个体感受需平衡看待，专业建议最可靠\nagent_003：需平衡官方数据与个体感受，科学防控不盲从\nagent_004：数据与感受差异需理性分析，既不轻视也不恐慌\nagent_005：数据与个体感受差异需科学分析，官方与民间视角都值得重视"
+        },
+        {
+          "timestep": 3,
+          "events_count": 6,
+          "comment_events": 6,
+          "action_counts": {
+            "post_comment": 6,
+            "reply": 0,
+            "like": 0,
+            "repost": 0,
+            "observe": 0
+          },
+          "reply_ratio": 0.0,
+          "new_post_ratio": 1.0,
+          "observe_ratio": 0.0,
+          "unique_reply_targets": 0,
+          "avg_group_consensus_perception": 37.5,
+          "recent_updates": "agent_000：需理性看待疫情数据，既不轻视也不恐慌\nagent_001：关注官方数据，避免被个别案例误导\nagent_002：需关注但不过度恐慌，官方数据与家长感受差异值得研究\nagent_003：需警惕但不必恐慌，关注官方数据和专业建议\nagent_004：关注官方数据，避免被片面信息影响判断\nagent_005：需关注官方数据，避免被个别案例误导\nagent_000：数据与感受差异需理性分析，关注官方信息同时不忽视个体体验\nagent_001：数据差异需理性分析，既不轻视风险也不过度恐慌\nagent_002：官方数据与个体感受需平衡看待，专业建议最可靠\nagent_003：需平衡官方数据与个体感受，科学防控不盲从\nagent_004：数据与感受差异需理性分析，既不轻视也不恐慌\nagent_005：数据与个体感受差异需科学分析，官方与民间视角都值得重视\nagent_000：平衡看待官方数据与个体感受差异，科学防控不盲从\nagent_001：数据与个体感受差异需理性分析，关注官方信息同时不忽视个体体验\nagent_002：数据差异需理性分析，官方与个体感受都值得关注\nagent_003：数据差异需理性分析，官方与家长感受都值得重视\nagent_004：官方数据与家长感受差异需理性分析，科学防控不盲从\nagent_005：数据与感受差异需理性分析，关注官方信息同时不忽视个体体验"
+        },
+        {
+          "timestep": 4,
+          "events_count": 6,
+          "comment_events": 6,
+          "action_counts": {
+            "post_comment": 6,
+            "reply": 0,
+            "like": 0,
+            "repost": 0,
+            "observe": 0
+          },
+          "reply_ratio": 0.0,
+          "new_post_ratio": 1.0,
+          "observe_ratio": 0.0,
+          "unique_reply_targets": 0,
+          "avg_group_consensus_perception": 35.0,
+          "recent_updates": "agent_000：数据与感受差异需理性分析，关注官方信息同时不忽视个体体验\nagent_001：数据差异需理性分析，既不轻视风险也不过度恐慌\nagent_002：官方数据与个体感受需平衡看待，专业建议最可靠\nagent_003：需平衡官方数据与个体感受，科学防控不盲从\nagent_004：数据与感受差异需理性分析，既不轻视也不恐慌\nagent_005：数据与个体感受差异需科学分析，官方与民间视角都值得重视\nagent_000：平衡看待官方数据与个体感受差异，科学防控不盲从\nagent_001：数据与个体感受差异需理性分析，关注官方信息同时不忽视个体体验\nagent_002：数据差异需理性分析，官方与个体感受都值得关注\nagent_003：数据差异需理性分析，官方与家长感受都值得重视\nagent_004：官方数据与家长感受差异需理性分析，科学防控不盲从\nagent_005：数据与感受差异需理性分析，关注官方信息同时不忽视个体体验\nagent_000：数据差异需理性分析，官方与个体感受都值得关注\nagent_001：数据差异需理性分析，官方与个体视角都值得重视\nagent_002：数据差异需理性看待，官方与个体视角都值得关注\nagent_003：数据差异需理性分析，官方与个体感受都值得关注\nagent_004：官方数据与个体感受差异需理性分析，科学防控不盲从\nagent_005：数据差异需理性分析，官方与个体视角都值得重视"
+        }
+      ]
+    },
+    "positive_leaning": {
+      "raw_response": "```json\n{\n  \"credible_choice\": \"neutral\",\n  \"like_choice\": \"none\",\n  \"share_choice\": \"none\",\n  \"comment_choice\": \"neutral\",\n  \"planned_action\": \"post_comment\",\n  \"reply_target\": \"none\",\n  \"group_consensus_perception\": 35,\n  \"public_comment\": \"关注官方信息，科学应对，不必过度恐慌也不应忽视风险。\",\n  \"private_reason\": \"虽然当前氛围偏正向，但两种信息各有依据，保持中立态度更合理。作为普通用户，应平衡看待官方信息与自媒体观点，避免被单一信息源影响判断。\"\n}\n```",
+      "parsed_decision": {
+        "credible_choice": "neutral",
+        "like_choice": "none",
+        "share_choice": "none",
+        "comment_choice": "neutral",
+        "reason": null
+      },
+      "parsed_p3_fields": {
+        "planned_action": "post_comment",
+        "reply_target": "none",
+        "group_consensus_perception": 35,
+        "public_comment": "关注官方信息，科学应对，不必过度恐慌也不应忽视风险。",
+        "private_reason": "虽然当前氛围偏正向，但两种信息各有依据，保持中立态度更合理。作为普通用户，应平衡看待官方信息与自媒体观点，避免被单一信息源影响判断。"
+      },
+      "simulation_steps": [
+        {
+          "timestep": 1,
+          "events_count": 6,
+          "comment_events": 6,
+          "action_counts": {
+            "post_comment": 6,
+            "reply": 0,
+            "like": 0,
+            "repost": 0,
+            "observe": 0
+          },
+          "reply_ratio": 0.0,
+          "new_post_ratio": 1.0,
+          "observe_ratio": 0.0,
+          "unique_reply_targets": 0,
+          "avg_group_consensus_perception": 35.83,
+          "recent_updates": "agent_000：关注官方数据，理性看待，避免过度恐慌\nagent_001：关注官方数据，避免被个别案例误导，理性看待疫情发展\nagent_002：关注官方数据，避免被片面信息误导\nagent_003：关注官方数据，避免恐慌，科学防护更重要\nagent_004：关注官方数据，理性看待疫情波动\nagent_005：关注官方信息，科学防护，不轻信片面之词。"
+        },
+        {
+          "timestep": 2,
+          "events_count": 6,
+          "comment_events": 6,
+          "action_counts": {
+            "post_comment": 6,
+            "reply": 0,
+            "like": 0,
+            "repost": 0,
+            "observe": 0
+          },
+          "reply_ratio": 0.0,
+          "new_post_ratio": 1.0,
+          "observe_ratio": 0.0,
+          "unique_reply_targets": 0,
+          "avg_group_consensus_perception": 29.17,
+          "recent_updates": "agent_000：关注官方数据，理性看待，避免过度恐慌\nagent_001：关注官方数据，避免被个别案例误导，理性看待疫情发展\nagent_002：关注官方数据，避免被片面信息误导\nagent_003：关注官方数据，避免恐慌，科学防护更重要\nagent_004：关注官方数据，理性看待疫情波动\nagent_005：关注官方信息，科学防护，不轻信片面之词。\nagent_000：官方数据与个体体验需平衡看待，防护意识不可松懈\nagent_001：关注官方数据，科学防护，不轻信片面之词。\nagent_002：关注官方数据，平衡看待不同信息，科学防护是关键\nagent_003：关注数据平衡，既不轻视风险也不过度恐慌\nagent_004：数据透明才能平衡恐慌与忽视\nagent_005：官方数据与个案需平衡看待，科学防护是关键"
+        },
+        {
+          "timestep": 3,
+          "events_count": 6,
+          "comment_events": 6,
+          "action_counts": {
+            "post_comment": 6,
+            "reply": 0,
+            "like": 0,
+            "repost": 0,
+            "observe": 0
+          },
+          "reply_ratio": 0.0,
+          "new_post_ratio": 1.0,
+          "observe_ratio": 0.0,
+          "unique_reply_targets": 0,
+          "avg_group_consensus_perception": 29.17,
+          "recent_updates": "agent_000：关注官方数据，理性看待，避免过度恐慌\nagent_001：关注官方数据，避免被个别案例误导，理性看待疫情发展\nagent_002：关注官方数据，避免被片面信息误导\nagent_003：关注官方数据，避免恐慌，科学防护更重要\nagent_004：关注官方数据，理性看待疫情波动\nagent_005：关注官方信息，科学防护，不轻信片面之词。\nagent_000：官方数据与个体体验需平衡看待，防护意识不可松懈\nagent_001：关注官方数据，科学防护，不轻信片面之词。\nagent_002：关注官方数据，平衡看待不同信息，科学防护是关键\nagent_003：关注数据平衡，既不轻视风险也不过度恐慌\nagent_004：数据透明才能平衡恐慌与忽视\nagent_005：官方数据与个案需平衡看待，科学防护是关键\nagent_000：数据透明才能平衡恐慌与忽视\nagent_001：数据平衡看待，科学防护是关键，不轻信片面之词。\nagent_002：平衡看待官方数据与个体体验，科学防护是关键\nagent_003：数据透明与科学防护并重，平衡看待个体差异\nagent_004：数据平衡看待，科学防护比恐慌更重要\nagent_005：数据透明与个体体验需平衡，科学防护是关键"
+        },
+        {
+          "timestep": 4,
+          "events_count": 6,
+          "comment_events": 6,
+          "action_counts": {
+            "post_comment": 6,
+            "reply": 0,
+            "like": 0,
+            "repost": 0,
+            "observe": 0
+          },
+          "reply_ratio": 0.0,
+          "new_post_ratio": 1.0,
+          "observe_ratio": 0.0,
+          "unique_reply_targets": 0,
+          "avg_group_consensus_perception": 26.67,
+          "recent_updates": "agent_000：官方数据与个体体验需平衡看待，防护意识不可松懈\nagent_001：关注官方数据，科学防护，不轻信片面之词。\nagent_002：关注官方数据，平衡看待不同信息，科学防护是关键\nagent_003：关注数据平衡，既不轻视风险也不过度恐慌\nagent_004：数据透明才能平衡恐慌与忽视\nagent_005：官方数据与个案需平衡看待，科学防护是关键\nagent_000：数据透明才能平衡恐慌与忽视\nagent_001：数据平衡看待，科学防护是关键，不轻信片面之词。\nagent_002：平衡看待官方数据与个体体验，科学防护是关键\nagent_003：数据透明与科学防护并重，平衡看待个体差异\nagent_004：数据平衡看待，科学防护比恐慌更重要\nagent_005：数据透明与个体体验需平衡，科学防护是关键\nagent_000：数据透明与科学防护并重，平衡看待官方与个体信息\nagent_001：数据透明与科学防护并重，平衡看待官方与个体信息\nagent_002：关注数据平衡，防护不松懈，理性看待疫情波动\nagent_003：数据透明与个体体验需平衡，科学防护是关键\nagent_004：数据透明才能平衡恐慌与忽视，科学防护是关键\nagent_005：关注官方数据的同时，也不应忽视个体差异和潜在风险。"
+        }
+      ]
+    },
+    "negative_leaning": {
+      "raw_response": "```json\n{\n  \"credible_choice\": \"neutral\",\n  \"like_choice\": \"none\",\n  \"share_choice\": \"none\",\n  \"comment_choice\": \"support_negative\",\n  \"planned_action\": \"post_comment\",\n  \"reply_target\": \"none\",\n  \"group_consensus_perception\": 65,\n  \"public_comment\": \"家长担忧不无道理，官方数据与实际感受存在差距\",\n  \"private_reason\": \"考虑到信息1描述的症状持续时间和并发症风险，以及家长的实际感受，倾向于支持负向观点，但也注意到信息2中专家的可管理性评估，因此保持中立可信度。\"\n}\n```",
+      "parsed_decision": {
+        "credible_choice": "neutral",
+        "like_choice": "none",
+        "share_choice": "none",
+        "comment_choice": "support_negative",
+        "reason": null
+      },
+      "parsed_p3_fields": {
+        "planned_action": "post_comment",
+        "reply_target": "none",
+        "group_consensus_perception": 65,
+        "public_comment": "家长担忧不无道理，官方数据与实际感受存在差距",
+        "private_reason": "考虑到信息1描述的症状持续时间和并发症风险，以及家长的实际感受，倾向于支持负向观点，但也注意到信息2中专家的可管理性评估，因此保持中立可信度。"
+      },
+      "simulation_steps": [
+        {
+          "timestep": 1,
+          "events_count": 6,
+          "comment_events": 6,
+          "action_counts": {
+            "post_comment": 6,
+            "reply": 0,
+            "like": 0,
+            "repost": 0,
+            "observe": 0
+          },
+          "reply_ratio": 0.0,
+          "new_post_ratio": 1.0,
+          "observe_ratio": 0.0,
+          "unique_reply_targets": 0,
+          "avg_group_consensus_perception": 66.67,
+          "recent_updates": "agent_000：关注官方数据，平衡看待风险与医疗系统承受力\nagent_001：关注官方数据，谨慎对待自媒体夸大报道\nagent_002：需平衡关注与理性，避免信息放大恐慌\nagent_003：数据透明度不足，家长担忧有道理，但恐慌无益\nagent_004：症状可控但家长担忧需关注，平衡看待才明智\nagent_005：需平衡看待，既不轻视也不恐慌，关注官方数据"
+        },
+        {
+          "timestep": 2,
+          "events_count": 6,
+          "comment_events": 6,
+          "action_counts": {
+            "post_comment": 6,
+            "reply": 0,
+            "like": 0,
+            "repost": 0,
+            "observe": 0
+          },
+          "reply_ratio": 0.0,
+          "new_post_ratio": 1.0,
+          "observe_ratio": 0.0,
+          "unique_reply_targets": 0,
+          "avg_group_consensus_perception": 65.0,
+          "recent_updates": "agent_000：关注官方数据，平衡看待风险与医疗系统承受力\nagent_001：关注官方数据，谨慎对待自媒体夸大报道\nagent_002：需平衡关注与理性，避免信息放大恐慌\nagent_003：数据透明度不足，家长担忧有道理，但恐慌无益\nagent_004：症状可控但家长担忧需关注，平衡看待才明智\nagent_005：需平衡看待，既不轻视也不恐慌，关注官方数据\nagent_000：平衡看待官方数据与家长担忧，不轻视风险也不盲目恐慌\nagent_001：平衡看待官方数据与家长担忧，理性应对才是关键\nagent_002：数据透明度是关键，平衡看待官方与民间声音\nagent_003：数据透明很重要，平衡看待官方与民间声音\nagent_004：官方数据与家长担忧需平衡看待，理性应对才能避免恐慌\nagent_005：官方数据与家长体验需兼顾，过度恐慌和轻视都不妥。"
+        },
+        {
+          "timestep": 3,
+          "events_count": 6,
+          "comment_events": 6,
+          "action_counts": {
+            "post_comment": 6,
+            "reply": 0,
+            "like": 0,
+            "repost": 0,
+            "observe": 0
+          },
+          "reply_ratio": 0.0,
+          "new_post_ratio": 1.0,
+          "observe_ratio": 0.0,
+          "unique_reply_targets": 0,
+          "avg_group_consensus_perception": 63.33,
+          "recent_updates": "agent_000：关注官方数据，平衡看待风险与医疗系统承受力\nagent_001：关注官方数据，谨慎对待自媒体夸大报道\nagent_002：需平衡关注与理性，避免信息放大恐慌\nagent_003：数据透明度不足，家长担忧有道理，但恐慌无益\nagent_004：症状可控但家长担忧需关注，平衡看待才明智\nagent_005：需平衡看待，既不轻视也不恐慌，关注官方数据\nagent_000：平衡看待官方数据与家长担忧，不轻视风险也不盲目恐慌\nagent_001：平衡看待官方数据与家长担忧，理性应对才是关键\nagent_002：数据透明度是关键，平衡看待官方与民间声音\nagent_003：数据透明很重要，平衡看待官方与民间声音\nagent_004：官方数据与家长担忧需平衡看待，理性应对才能避免恐慌\nagent_005：官方数据与家长体验需兼顾，过度恐慌和轻视都不妥。\nagent_000：数据透明是关键，既不轻视也不恐慌，多方信息需平衡看待。\nagent_001：平衡看待官方数据与家长体验，透明度是关键。\nagent_002：官方数据与家长担忧都需重视，过度恐慌无益\nagent_003：数据透明才能平衡官方与家长感受，避免恐慌也不轻视风险\nagent_004：需更多透明数据，平衡官方与家长声音\nagent_005：数据透明是关键，官方与家长视角需互补"
+        },
+        {
+          "timestep": 4,
+          "events_count": 6,
+          "comment_events": 6,
+          "action_counts": {
+            "post_comment": 6,
+            "reply": 0,
+            "like": 0,
+            "repost": 0,
+            "observe": 0
+          },
+          "reply_ratio": 0.0,
+          "new_post_ratio": 1.0,
+          "observe_ratio": 0.0,
+          "unique_reply_targets": 0,
+          "avg_group_consensus_perception": 65.0,
+          "recent_updates": "agent_000：平衡看待官方数据与家长担忧，不轻视风险也不盲目恐慌\nagent_001：平衡看待官方数据与家长担忧，理性应对才是关键\nagent_002：数据透明度是关键，平衡看待官方与民间声音\nagent_003：数据透明很重要，平衡看待官方与民间声音\nagent_004：官方数据与家长担忧需平衡看待，理性应对才能避免恐慌\nagent_005：官方数据与家长体验需兼顾，过度恐慌和轻视都不妥。\nagent_000：数据透明是关键，既不轻视也不恐慌，多方信息需平衡看待。\nagent_001：平衡看待官方数据与家长体验，透明度是关键。\nagent_002：官方数据与家长担忧都需重视，过度恐慌无益\nagent_003：数据透明才能平衡官方与家长感受，避免恐慌也不轻视风险\nagent_004：需更多透明数据，平衡官方与家长声音\nagent_005：数据透明是关键，官方与家长视角需互补\nagent_000：数据透明才能平衡各方观点，避免恐慌也不轻视风险\nagent_001：数据透明是关键，平衡看待官方与家长声音，理性应对\nagent_002：数据透明是关键，官方与民间视角互补才能全面了解疫情态势\nagent_003：数据透明是关键，平衡看待官方与家长声音\nagent_004：数据透明才能平衡各方视角，避免恐慌也不轻视风险\nagent_005：数据透明是关键，平衡看待官方与民间声音"
+        }
+      ]
+    }
+  }
+}

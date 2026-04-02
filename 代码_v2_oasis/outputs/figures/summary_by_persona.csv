@@ -1,0 +1,4 @@
+persona_name,count,mean,std,min,max
+authority_trusting,10,1.3,1.7029386365926402,0,4
+neutral_prudent,10,1.6,1.7126976771553508,0,4
+risk_sensitive,10,2.7,1.5670212364724212,0,4

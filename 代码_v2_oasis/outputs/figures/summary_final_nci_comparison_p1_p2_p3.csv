@@ -1,0 +1,5 @@
+scenario_name,climate_type,count,nci_p1_mean,nci_p2_final_mean,nci_p3_final_mean,delta_p3_minus_p2_mean,delta_p2_minus_p1_mean,delta_p3_minus_p1_mean
+influenza_a,negative_leaning,3,1.6666666666666667,3.3333333333333335,4.0,0.6666666666666666,1.6666666666666667,2.3333333333333335
+influenza_a,positive_leaning,3,1.6666666666666667,1.3333333333333333,0.0,-1.3333333333333333,-0.3333333333333333,-1.6666666666666667
+mycoplasma_pneumonia,negative_leaning,3,1.0,4.0,2.3333333333333335,-1.6666666666666667,3.0,1.3333333333333333
+mycoplasma_pneumonia,positive_leaning,3,1.0,1.0,0.0,-1.0,0.0,-1.0

@@ -1,0 +1,13 @@
+scenario_name,climate_type,persona_name,repeat_index,nci_p1,nci_p2_final,nci_p3_final,delta_p3_minus_p2,delta_p2_minus_p1,delta_p3_minus_p1
+influenza_a,negative_leaning,authority_trusting,0,1,3,4,1,2,3
+influenza_a,negative_leaning,neutral_prudent,0,1,3,4,1,2,3
+influenza_a,negative_leaning,risk_sensitive,0,3,4,4,0,1,1
+influenza_a,positive_leaning,authority_trusting,0,1,0,0,0,-1,-1
+influenza_a,positive_leaning,neutral_prudent,0,1,1,0,-1,0,-1
+influenza_a,positive_leaning,risk_sensitive,0,3,3,0,-3,0,-3
+mycoplasma_pneumonia,negative_leaning,authority_trusting,0,0,4,0,-4,4,0
+mycoplasma_pneumonia,negative_leaning,neutral_prudent,0,0,4,3,-1,4,3
+mycoplasma_pneumonia,negative_leaning,risk_sensitive,0,3,4,4,0,1,1
+mycoplasma_pneumonia,positive_leaning,authority_trusting,0,0,1,0,-1,1,0
+mycoplasma_pneumonia,positive_leaning,neutral_prudent,0,0,0,0,0,0,0
+mycoplasma_pneumonia,positive_leaning,risk_sensitive,0,3,2,0,-2,-1,-3

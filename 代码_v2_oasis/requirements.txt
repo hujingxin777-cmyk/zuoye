@@ -1,0 +1,40 @@
+# 项目依赖列表
+
+# 核心框架
+camel-ai>=0.2.78  # CAMEL AI 框架
+camel-oasis>=0.2.5  # OASIS 社交媒体模拟器
+
+# LLM 与 API
+openai>=1.0.0  # OpenAI API
+zhipu-ai>=2.0.0  # 智谱 GLM API
+
+# 数据处理与配置
+pydantic>=2.0.0  # 数据验证
+pyyaml>=6.0  # YAML 配置支持
+python-dotenv>=1.0.0  # 环境变量管理
+
+# 异步与并发
+aiohttp>=3.8.0  # 异步 HTTP
+asyncio-contextmanager>=1.0.0  # 异步上下文管理
+
+# 数据分析与可视化
+pandas>=2.0.0  # 数据分析
+numpy>=1.20.0  # 数值计算
+matplotlib>=3.5.0  # 绘图
+seaborn>=0.12.0  # 高级绘图
+scipy>=1.10.0  # 统计分析
+
+# 数据库
+sqlalchemy>=2.0.0  # ORM
+sqlite3  # SQLite (内置)
+
+# 测试与开发
+pytest>=7.0.0  # 单元测试
+pytest-asyncio>=0.21.0  # 异步测试支持
+black>=23.0.0  # 代码格式化
+isort>=5.0.0  # 导入排序
+pylint>=2.17.0  # 代码检查
+
+# 其他
+tqdm>=4.65.0  # 进度条
+loguru>=0.7.0  # 日志管理

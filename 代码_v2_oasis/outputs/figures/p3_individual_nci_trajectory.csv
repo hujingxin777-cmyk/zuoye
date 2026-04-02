@@ -1,0 +1,13 @@
+scenario_name,climate_type,persona_name,repeat_index,agent_id,timestep,nci,nci_delta_prev,nci_delta_from_start
+influenza_a,negative_leaning,authority_trusting,0,agent_000008,1,4.0,,0.0
+influenza_a,negative_leaning,neutral_prudent,0,agent_000009,1,4.0,,0.0
+influenza_a,negative_leaning,risk_sensitive,0,agent_000007,1,4.0,,0.0
+influenza_a,positive_leaning,authority_trusting,0,agent_000008,1,0.0,,0.0
+influenza_a,positive_leaning,neutral_prudent,0,agent_000009,1,0.0,,0.0
+influenza_a,positive_leaning,risk_sensitive,0,agent_000007,1,0.0,,0.0
+mycoplasma_pneumonia,negative_leaning,authority_trusting,0,agent_000008,1,0.0,,0.0
+mycoplasma_pneumonia,negative_leaning,neutral_prudent,0,agent_000009,1,3.0,,0.0
+mycoplasma_pneumonia,negative_leaning,risk_sensitive,0,agent_000007,1,4.0,,0.0
+mycoplasma_pneumonia,positive_leaning,authority_trusting,0,agent_000008,1,0.0,,0.0
+mycoplasma_pneumonia,positive_leaning,neutral_prudent,0,agent_000009,1,0.0,,0.0
+mycoplasma_pneumonia,positive_leaning,risk_sensitive,0,agent_000007,1,0.0,,0.0

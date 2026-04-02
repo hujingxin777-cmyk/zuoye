@@ -1,0 +1,24 @@
+{
+  "scenario": "mycoplasma_pneumonia",
+  "persona": "risk_sensitive",
+  "model": "zhipu/glm-4",
+  "dry_run": true,
+  "simulate_p3": true,
+  "climates": {
+    "none": {
+      "raw_response": null,
+      "parsed_decision": null,
+      "parsed_p3_fields": null
+    },
+    "positive_leaning": {
+      "raw_response": null,
+      "parsed_decision": null,
+      "parsed_p3_fields": null
+    },
+    "negative_leaning": {
+      "raw_response": null,
+      "parsed_decision": null,
+      "parsed_p3_fields": null
+    }
+  }
+}

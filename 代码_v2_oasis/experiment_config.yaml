@@ -1,0 +1,277 @@
+# 实验总配置文件 v2.0 (OASIS 版本)
+
+# 实验方案选择：
+# - pilot：可行性测试（快速调试）
+# - formal：正式实验（采样量大）
+# - custom：完全按主配置运行
+active_plan: "formal"
+
+# 统一入口开关：
+# false -> 使用本项目实验执行器（experiment_core/runner.py）
+# true  -> 使用严格 OASIS 部署流程（原 oasis_deploy_runner 逻辑）
+use_oasis_deploy: false
+
+# 模型配置
+# ✅ 日常切换模型只改本文件，不改 config.py
+# 参考 CAMEL ModelFactory 用法：
+# - ZHIPU: model_platform=ModelPlatformType.ZHIPU, model_type="glm-4"
+# - OPENAI: model_platform=ModelPlatformType.OPENAI, model_type="gpt-4o-mini"
+# 本项目中对应为：
+# - api_style: "zhipu" / "openai"
+# - name: 对应 model_type 字符串
+model:
+  name: "glm-4"
+  api_style: "zhipu"
+  temperature: 0.7
+  max_tokens: 10240
+  # 可选：显式指定读取哪个环境变量（不填则按api_style自动找）
+  # api_key_env: "ZHIPUAI_API_KEY"
+
+# 多模型对比配置（可选）
+# - single: 全部Agent使用同一个模型（默认）
+# - by_agent_hash: 按agent_id稳定分配到模型池中的模型（推荐用于公平对比）
+# - round_robin: 轮询分配
+model_assignment_strategy: "single"
+model_pool: []
+#
+# --- 模板A：切到 OpenAI 单模型（只改下面4行） ---
+# model:
+#   name: "gpt-4o-mini"
+#   api_style: "openai"
+#   temperature: 0.7
+#   max_tokens: 4096
+#
+# --- 模板B：双模型对比（CAMEL风格） ---
+# model_assignment_strategy: "by_agent_hash"
+# model_pool:
+#   - name: "glm-4"
+#     api_style: "zhipu"
+#     temperature: 0.7
+#     max_tokens: 10240
+#     api_key_env: "ZHIPUAI_API_KEY"
+#   - name: "gpt-4o-mini"
+#     api_style: "openai"
+#     temperature: 0.7
+#     max_tokens: 4096
+#     api_key_env: "OPENAI_API_KEY"
+
+api_base_url: "https://open.bigmodel.cn/api/paas/v4/"
+# 原因最大字符数（可选）
+# - 用于限制模型生成的决策理由长度，防止过长导致输出不完整或超时。根据实际情况调整。
+reason_max_chars: 30
+
+# 异步并发配置
+# - concurrency: 并发数，影响同时运行的 Agent 数
+# - api_concurrency: API 并发数，影响每个 Agent 并发请求数
+# - repeats_per_cell: 每个单元格重复次数，影响每个单元格的采样量
+concurrency: 5
+api_concurrency: 3
+repeats_per_cell: 2
+max_retries: 2
+retry_backoff_seconds: 2.0
+agent_retry_attempts: 2
+agent_retry_delay: 1.5
+
+# 高阶互动配置
+interaction_mode: "dynamic"  # "dynamic" 或 "static"
+
+high_interaction_agent_count: 9
+high_interaction_persona_ratio: [1, 1, 1]
+high_interaction_rounds: 2
+high_interaction_max_timestep: 10
+high_interaction_activate_prob: 0.8
+high_interaction_step_timeout_seconds: 120
+high_consensus_threshold: 0.90
+high_consensus_hold_steps: 2
+discussion_stalled_steps: 4
+high_interaction_reply_cooldown: 1
+high_interaction_max_visible_events: 18
+
+# 随机种子
+random_seed: 42
+
+# 实验条件
+conditions:
+  - "independent"
+  - "low_feedback"
+  - "high_interaction"
+
+# Agent 角色定义
+personas:
+  - name: "risk_sensitive"
+    profile: "你对潜在健康风险较为敏感，倾向于对不确定性保持警惕，更关注可能被忽视的隐患。"
+  - name: "authority_trusting"
+    profile: "你通常更相信专家和正式信息来源，不容易被夸张表述带动，但会结合具体情境做判断。"
+  - name: "neutral_prudent"
+    profile: "你会尽量平衡不同信息，不轻易倒向任何一方，但在群体讨论中可能受到环境影响。"
+
+# 实验场景
+scenarios:
+  - name: "mycoplasma_pneumonia"
+    background: "近期多地医院儿科门诊接诊量增加，支原体肺炎相关话题在社交媒体上引发广泛讨论，公众对传播情况和潜在风险高度关注。"
+    positive_narrative: "有媒体报道称，近期呼吸道疾病就诊人数虽有所增加，但多数病例症状可控，经过规范治疗后恢复情况较好。专家表示，目前整体流行态势仍在可管理范围内，公众无需过度恐慌。"
+    negative_narrative: "有自媒体发文称，本轮支原体肺炎传播速度和影响范围可能被低估，部分患儿症状持续时间较长，甚至可能出现更严重并发症。多位家长在网上表示担忧，认为实际情况可能比公开信息更严重。"
+  
+  - name: "influenza_a"
+    background: "近期部分城市流感病例有所增加，甲流相关话题在社交平台受到广泛关注，公众对传播趋势和潜在风险持续讨论。"
+    positive_narrative: "有报道指出，虽然近期甲流病例有所增加，但大多数患者症状较轻，经对症治疗后恢复较快。专家表示，目前整体情况仍处于可监测、可应对范围内，公众不必过度紧张。"
+    negative_narrative: "有网络消息称，本轮甲流的实际传播情况可能比公开数据更严峻，部分患者恢复时间较长，学校和社区可能面临更大范围传播风险。一些网友担心现有信息低估了潜在影响。"
+
+# 低强度反馈文本（P2 平台：少量静态评论 + 热度线索，无回复链）
+low_feedback_blocks:
+  none: |
+    【评论1｜用户A】👍 34  🔁 9  💬 3
+    现在说严重或不严重都早了点，再看看这两天通报吧。
+
+    【评论2｜用户B】👍 31  🔁 8  💬 2
+    我家里有人好得很快，也有人咳了挺久，差异挺大。
+
+    【评论3｜用户C】👍 33  🔁 9  💬 3
+    先按医生建议做防护，别被一两条消息带节奏。
+
+  positive_leaning: |
+    【评论1｜用户A】👍 46  🔁 13  💬 4
+    医生那边一直说整体可控，真不用先把自己吓住。
+
+    【评论2｜用户B】👍 41  🔁 11  💬 3
+    夸张标题太多了，我更信医院和疾控的更新。
+
+    【评论3｜用户C】👍 44  🔁 12  💬 4
+    身边大多是几天就缓过来，先别按最坏情况想。
+  
+  negative_leaning: |
+    【评论1｜用户A】👍 74  🔁 27  💬 8
+    这两天门诊排队太久了，感觉现实比通报更紧张。
+
+    【评论2｜用户B】👍 69  🔁 24  💬 7
+    我同事恢复特别慢，后遗症也挺折腾，不太敢乐观。
+
+    【评论3｜用户C】👍 78  🔁 29  💬 8
+    越是反复强调“没事”，我反而更担心还有没说全的风险。
+
+# 高阶互动文本（P3 平台：完整讨论线程 + 回复链 + 信号演化）
+high_interaction_blocks:
+  none: |
+    【用户A 的评论】👍 42  🔁 12  💬 4
+    我觉得现在证据还不够，先保持观察。
+
+      【用户B 回复】👍 21  🔁 6  💬 2
+      同意，既不要轻视也不要恐慌。
+
+    【用户C 的评论】👍 43  🔁 13  💬 4
+    身边样本差异很大，结论可能因人而异。
+
+      【用户D 回复】👍 20  🔁 6  💬 2
+      是的，最好继续关注后续通报。
+
+    【用户E 的评论】👍 41  🔁 12  💬 4
+    先做好基本防护，信息再观察几天。
+
+      【用户F 回复】👍 19  🔁 5  💬 2
+      可以，先按规范应对。
+
+  positive_leaning: |
+    【用户A 的评论】👍 48  🔁 15  💬 5
+    先别急着下结论，现在很多信息还没完全核实。
+    
+      【用户B 回复】👍 32  🔁 8  💬 2
+      对，还是要看更正式的结果。
+      
+      【用户D 回复】👍 28  🔁 6  💬 1
+      同意，网上很多说法确实容易放大恐慌。
+    
+    【用户C 的评论】👍 56  🔁 18  💬 6
+    从目前情况看，好像大多数病例症状并不严重。
+    
+      【用户E 回复】👍 38  🔁 10  💬 3
+      家长担心可以理解，但还是得看证据。
+    
+    【用户F 的评论】👍 44  🔁 14  💬 4
+    目前公开信息至少没有显示风险已经失控。
+    
+      【用户G 回复】👍 31  🔁 8  💬 2
+      所以现阶段更应该避免传播夸张说法。
+  
+  negative_leaning: |
+    【用户A 的评论】👍 76  🔁 28  💬 8
+    最近这个情况感觉比公开说法更严重。
+    
+      【用户B 回复】👍 58  🔁 20  💬 5
+      对，很多人都在说实际影响可能被低估了。
+      
+      【用户C 回复】👍 64  🔁 23  💬 6
+      如果真没那么严重，医院不会一直这么挤。
+    
+    【用户D 的评论】👍 82  🔁 31  💬 9
+    感觉很多信息都在弱化风险。
+    
+      【用户E 回复】👍 71  🔁 26  💬 7
+      问题是现在很多情况根本没完全说清楚。
+    
+    【用户F 的评论】👍 79  🔁 29  💬 8
+    这种时候越是反复安抚，越让人担心事情不简单。
+    
+      【用户G 回复】👍 68  🔁 24  💬 6
+      同感，我现在更相信风险可能比表面更大。
+
+# 条件子版本（互动氛围）
+low_feedback_climates:
+  - "none"
+  - "positive_leaning"
+  - "negative_leaning"
+# 高阶互动互动氛围
+high_interaction_climates:
+  - "none"
+  - "positive_leaning"
+  - "negative_leaning"
+
+# 实验方案预设
+plans:
+  pilot:
+    conditions:
+      - "independent"
+      - "low_feedback"
+      - "high_interaction"
+    scenario_names:
+      - "mycoplasma_pneumonia"
+      - "influenza_a"
+    persona_names:
+      - "risk_sensitive"
+      - "authority_trusting"
+      - "neutral_prudent"
+    repeats_per_cell: 1
+    concurrency: 1
+    api_concurrency: 1
+    low_feedback_climates:
+      - "none"
+      - "positive_leaning"
+      - "negative_leaning"
+    high_interaction_climates:
+      - "none"
+      - "positive_leaning"
+      - "negative_leaning"
+
+  formal:
+    conditions:
+      - "independent"
+      - "low_feedback"
+      - "high_interaction"
+    scenario_names:
+      - "mycoplasma_pneumonia"
+      - "influenza_a"
+    persona_names:
+      - "risk_sensitive"
+      - "authority_trusting"
+      - "neutral_prudent"
+    # 每个实验单元重复次数（影响采样量）
+    repeats_per_cell: 10
+    # 并发执行的实验单元数（影响效率）
+    api_concurrency: 1
+    low_feedback_climates:
+      - "none"
+      - "positive_leaning"
+      - "negative_leaning"
+    high_interaction_climates:
+      - "none"
+      - "positive_leaning"
+      - "negative_leaning"
